@@ -12,13 +12,13 @@ namespace _15may2021_2.Controllers
         // GET: Cliente
         public ActionResult Index()
         {
-            using (var db =  new inventario2021Entities ())
+            using (var db = new inventario2021Entities())
             {
                 return View(db.cliente.ToList());
-            }                
+            }
         }
 
-        public ActionResult Create ()
+        public ActionResult Create()
         {
             return View();
         }
@@ -39,7 +39,8 @@ namespace _15may2021_2.Controllers
                     return RedirectToAction("Index");
                 }
 
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 ModelState.AddModelError("", "erro " + ex);
                 return View();
@@ -76,7 +77,7 @@ namespace _15may2021_2.Controllers
 
                     user.nombre = clienteEdit.nombre;
                     user.documento = clienteEdit.documento;
-                    user.email = clienteEdit.email;                  
+                    user.email = clienteEdit.email;
 
                     db.SaveChanges();
                     return RedirectToAction("Index");
@@ -89,27 +90,5 @@ namespace _15may2021_2.Controllers
             }
         }
 
-        public ActionResult Details(int id)
-        {
-            using (var db = new inventario2021Entities())
-            {
-                cliente user = db.cliente.Find(id);
-                return View(user);
-
-            }
-        }
-
-        public ActionResult Delete(int id)
-        {
-            using (var db = new inventario2021Entities())
-            {
-                var cliente = db.cliente.Find(id);
-                db.cliente.Remove(cliente);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-        }
     }
 }
-
-  
