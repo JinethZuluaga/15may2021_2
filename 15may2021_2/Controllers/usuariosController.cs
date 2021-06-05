@@ -5,13 +5,16 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using _15may2021_2.Models;
+using System.Web.Security;
 
 
 namespace _15may2021_2.Controllers
 {
     public class usuariosController : Controller
     {
+        [Authorize]
         // GET: usuarios
+
         public ActionResult Index()
         {
             using (var db = new inventario2021Entities())
@@ -127,7 +130,45 @@ namespace _15may2021_2.Controllers
                 return RedirectToAction("Index");
             }
         }
+
+
+        public ActionResult Login(string message = "")
+        {
+            ViewBag.Message = message;
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(string email, string password)
+        {
+            string passEncrip = usuariosController.HashSHA1(password);
+            using (var db = new inventario2021Entities())
+            {
+                var userLogin = db.usuario.FirstOrDefault(e => e.email == email && e.password == passEncrip);
+                if (userLogin != null)
+                {
+                    FormsAuthentication.SetAuthCookie(userLogin.email, true);
+                    Session["User"] = userLogin;
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return Login("Verifique sus datos");
+                }
+            }
+        }
+
+        [Authorize]
+        public ActionResult CloseSession()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
+
+
+
 
 
