@@ -47,6 +47,29 @@ namespace _15may2021_2.Controllers
             }
         }
 
+
+
+        public ActionResult Details(int id)
+        {
+            using (var db = new inventario2021Entities())
+            {
+                cliente clienteDetalle = db.cliente.Where(a => a.id == id).FirstOrDefault();
+                return View(clienteDetalle);
+            }
+        }
+
+        public ActionResult Delete(int id)
+        {
+            using (var db = new inventario2021Entities())
+            {
+                var compraDelete = db.cliente.Find(id);
+                db.cliente.Remove(compraDelete);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+        }
+
+
         public ActionResult Edit(int id)
         {
             try

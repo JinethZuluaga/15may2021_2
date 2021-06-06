@@ -331,11 +331,11 @@
     <Content Include="Views\ProductoCompra\ListarProducto.cshtml" />
     <Content Include="Views\ProductoImagen\ListarNProducto.cshtml" />
     <Content Include="Views\ProductoCompra\Details.cshtml" />
-    <Content Include="Views\ProductoImagen\Details.cshtml" />
     <Content Include="Views\ProductoCompra\Delete.cshtml" />
     <Content Include="Views\ProductoImagen\Delete.cshtml" />
     <Content Include="Views\ProductoCompra\Edit.cshtml" />
     <Content Include="Views\ProductoImagen\Edit.cshtml" />
+    <Content Include="Views\ProductoImagen\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
