@@ -4,7 +4,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Login</h2>
+<h2>Bienvenido </h2>
+<p>Por Favor ingrese sus datos</p>
+
 
 @{ if (!string.IsNullOrEmpty(ViewBag.Message))
     {
@@ -23,7 +25,7 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2">Password</label>
+            <label class="control-label col-md-2" for="password">Contraseña</label>
             <div class="col-md-10">
                 <input type="password" name="password" class="form-control" />
             </div>

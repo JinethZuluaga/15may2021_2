@@ -1,0 +1,43 @@
+﻿@model _15may2021_2.Models.producto_compra
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>producto_compra</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Compra
+        </dt>
+
+        <dd>
+            @_15may2021_2.Controllers.ProductoCompraController.NombreCompra(Model.id_compra)            
+        </dd>
+
+        <dt>
+           Producto
+        </dt>
+
+        <dd>
+            @_15may2021_2.Controllers.ProductoCompraController.NombreProducto(Model.id_producto)
+            
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
