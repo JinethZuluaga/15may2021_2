@@ -88,7 +88,10 @@ namespace _15may2021_2.Controllers
     [ValidateAntiForgeryToken]
     public ActionResult Edit(usuario usuarioEdit)
     {
-        try
+            if (!ModelState.IsValid)
+                return View();
+
+            try
         {
             using (var db = new inventario2021Entities())
             {

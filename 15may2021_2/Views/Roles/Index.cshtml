@@ -1,8 +1,6 @@
 ﻿@model IEnumerable<_15may2021_2.Models.roles>
 
-@{
-    ViewBag.Title = "Index";
-}
+@{ ViewBag.Title = "Index"; }
 
 <h2>Todos los Roles</h2>
 
@@ -12,28 +10,25 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.descripcion)
-        </th>
+
+            Descripción
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                Descripcion del Rol
-            </td>
-            <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
-                @Html.ActionLink("Ver Todo", "Details", new { id = item.id }) |
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.id }, new { @class = "linkDelete" })
-
-            </td>
-        </tr>
-    }
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.descripcion)
+    </td>
+    <td>
+        @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+        @Html.ActionLink("Detalles", "Details", new { id = item.id }) |
+        @Html.ActionLink("Eliminar", "Delete", new { id = item.id }, new { @class = "linkDelete" })
+    </td>
+</tr>}
 
 </table>
-
 @section scripts{
     <script>
         $(".linkDelete").click(function (event) {
