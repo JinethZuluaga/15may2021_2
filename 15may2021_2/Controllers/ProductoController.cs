@@ -156,5 +156,7 @@ namespace _15may2021_2.Controllers
         {
             return new ActionAsPdf("Reporte") { FileName = "reporte.pdf" };
         }
+
+
     }
 }
