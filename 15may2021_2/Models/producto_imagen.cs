@@ -11,13 +11,15 @@ namespace _15may2021_2.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class producto_imagen
     {
         public int id { get; set; }
+        [Required(ErrorMessage = "El nombre no puede ir vacio")]
         public string imagen { get; set; }
         public int id_producto { get; set; }
-    
+
         public virtual producto producto { get; set; }
     }
 }

@@ -11,7 +11,8 @@ namespace _15may2021_2.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class producto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,14 +21,20 @@ namespace _15may2021_2.Models
             this.producto_compra = new HashSet<producto_compra>();
             this.producto_imagen = new HashSet<producto_imagen>();
         }
-    
+
         public int id { get; set; }
+        [Required(ErrorMessage = "El nombre no puede ir vacio")]
+        [StringLength(20, ErrorMessage = "supero el limite de 20 caracteres")]
         public string nombre { get; set; }
+        [Required(ErrorMessage = "El nombre no puede ir vacio")]
         public int percio_unitario { get; set; }
+        [Required(ErrorMessage = "El nombre no puede ir vacio")]
+        [StringLength(20, ErrorMessage = "supero el limite de 20 caracteres")]
         public string descripcion { get; set; }
+        [Required(ErrorMessage = "El nombre no puede ir vacio")]
         public int cantidad { get; set; }
         public int id_proveedor { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<producto_compra> producto_compra { get; set; }
         public virtual proveedor proveedor { get; set; }

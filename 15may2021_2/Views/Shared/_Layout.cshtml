@@ -29,21 +29,22 @@
                                     @if (!User.Identity.IsAuthenticated)
                                     {
                                         <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                                        <li>@Html.ActionLink("Acerca de", "Sobre mí", "Home")</li>
-                                        <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-                                        <li>@Html.ActionLink("Iniciar Sesión", "Login", "usuarios")</li>
+
+
+                                        <li>  @Html.ActionLink("Iniciar Sesión", "Login", "usuarios")  </li>
                                     }
                                     @if (User.Identity.IsAuthenticated)
                                     {
 
                                         <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menú CRUD Tablas <span class="caret"></span></a>
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menú CRUD Tablas <span class="glyphicon glyphicon-folder-open"></span></a>
                                             <ul class="dropdown-menu">
                                                 <li><a href="#">@Html.ActionLink("CRUD Usuario", "Index", "usuarios") </a></li>
                                                 <li><a href="#">@Html.ActionLink("CRUD Cliente", "Index", "Cliente") </a></li>
                                                 <li><a href="#">@Html.ActionLink("CRUD Compra", "Index", "Compras")</a></li>
                                                 <li><a href="#">@Html.ActionLink("CRUD Proveedor", "Index", "Proveedor")</a></li>
                                                 <li><a href="#">@Html.ActionLink("CRUD Producto", "Index", "Producto")</a></li>
+
                                                 <li><a href="#">@Html.ActionLink("CRUD Roles", "Index", "Roles") </a></li>
                                                 <li><a href="#">@Html.ActionLink("CRUD Usuario Rol", "Index", "UsuarioRol")</a></li>
                                                 <li><a href="#">@Html.ActionLink("CRUD Producto Compra", "Index", "ProductoCompra")</a></li>
@@ -52,7 +53,7 @@
                                         </li>
 
                                         <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Subir Archivos <span class="caret"></span></a>
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Subir Archivos <span class="glyphicon glyphicon-folder-open"></span></a>
                                             <ul class="dropdown-menu">
                                                 <li><a href="#">@Html.ActionLink("Subir Cliente", "uploadCSV", "Cliente") </a></li>
                                                 <li><a href="#">@Html.ActionLink("Subir Proveedor", "uploadCSV", "Proveedor") </a></li>
@@ -60,7 +61,7 @@
                                         </li>
 
                                         <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reportes <span class="caret"></span></a>
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reportes <span class="glyphicon glyphicon-folder-open"></span></a>
                                             <ul class="dropdown-menu">
                                                 <li><a href="#">@Html.ActionLink("Reporte Compra", "ReporteCompra", "Compras") </a></li>
                                                 <li><a href="#">@Html.ActionLink("Reporte Producto", "Reporte", "Producto") </a></li>
